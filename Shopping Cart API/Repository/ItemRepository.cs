@@ -13,9 +13,18 @@ namespace Shopping_Cart_API.Repository
             return _context.Items.ToList();
         }
 
-        public ICollection<Item> GetItemsByUser(int userId)
+        public ICollection<CartItem> GetItemsByUser(int userId)
         {
-            return _context.ItemUsers.Where(iu => iu.User.Id == userId).Select(i => i.Item).ToList();
+            return _context.ItemUsers.Where(iu => iu.User.Id == userId).Select(i => new CartItem
+        {
+            Id = i.Item.Id,
+            Name = i.Item.Name,
+            Price = i.Item.Price,
+            Amount = i.Amount
+        }).ToList();
+            
         }
+
+        
     }
 }

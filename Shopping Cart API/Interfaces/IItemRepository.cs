@@ -5,6 +5,6 @@ namespace Shopping_Cart_API.Interfaces
     public interface IItemRepository
     {
         ICollection<Item> GetItems();
-        ICollection<Item> GetItemsByUser(int userId);
+        ICollection<CartItem> GetItemsByUser(int userId);
     }
 }

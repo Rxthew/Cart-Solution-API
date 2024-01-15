@@ -30,7 +30,7 @@ namespace Shopping_Cart_API.tests
         public void ItemController_GetItemsByUser_ReturnOk()
         {
             int userId = 1;
-            var fakeItems = A.Fake<ICollection<Item>>();
+            var fakeItems = A.Fake<ICollection<CartItem>>();
             A.CallTo(() => _itemRepository.GetItemsByUser(userId)).Returns(fakeItems);
             var controller = new ItemsController(_itemRepository);
             var result = controller.GetItemsByUser(userId);

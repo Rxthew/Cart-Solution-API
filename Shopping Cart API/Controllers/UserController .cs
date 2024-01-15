@@ -41,21 +41,22 @@ namespace Shopping_Cart_API.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            } else
+            } 
+            else if (user != null)
             {
                 if (user.Password == password)
                 {
                     return Ok();
                 }
-                else
-                {
-                    return Unauthorized();
 
-                }
-            }
+            } 
+           return Unauthorized();
+
             
-            
-        
+
+
+
+
         }
 
         [HttpPut("cart/new")]
